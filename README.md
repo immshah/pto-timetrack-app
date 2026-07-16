@@ -13,7 +13,7 @@ A small web app for tracking hours worked and PTO for a team (~50 associates). N
 
 ## Running it locally
 
-Requires Node.js 18+.
+Requires Node.js 20.x. (`better-sqlite3` compiles a native module against your Node/V8 version — very new Node majors, like 22+/26, may not have a working prebuilt binary yet and can fail to compile from source. The repo pins Node to 20.x via `.node-version` and `package.json engines` to avoid this; on Render specifically, also set a `NODE_VERSION=20` environment variable in the dashboard, since Render prioritizes that over the other two.)
 
 ```bash
 cd pto-timetrack-app
@@ -75,14 +75,4 @@ server/
     pto.js          requests, approvals, balances, reports
     admin.js        user management, bulk import
 public/
-  index.html, css/style.css, js/api.js, js/app.js   the whole frontend, no framework/build step
-```
-
-## What's not included (possible next steps)
-
-- Self-service "forgot password" email flow (admin resets passwords instead).
-- Automatic PTO accrual (e.g. X hours per pay period).
-- Overtime rules, breaks, or geofenced clock-in.
-- Multi-tenant support (this is built for one company/org).
-
-If you want any of these added, just ask.
+  index.
